@@ -1,9 +1,15 @@
 import { InputStyle } from "./style";
 
-export const InputDefault = () => {
+interface iIpunt {
+  type: string;
+  label: string;
+  register: () => void;
+}
+
+export const InputDefault = ({ type, label, register }: iIpunt) => {
   return (
     <fieldset>
-      <InputStyle />
+      <InputStyle type={type} {...register} />
     </fieldset>
   );
 };

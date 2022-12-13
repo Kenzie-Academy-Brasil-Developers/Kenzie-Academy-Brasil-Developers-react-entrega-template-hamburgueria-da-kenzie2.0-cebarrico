@@ -22,7 +22,11 @@ export const GlobalStyle = createGlobalStyle`
      font-family: 'Inter', sans-serif;
      
   }
-
+#root{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
   main{
     width:100%;
     height: 100vh;
@@ -30,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
 
     display:flex;
     flex-direction:column;
+    justify-content: center;
     
     align-items: center;
     gap: 14px;

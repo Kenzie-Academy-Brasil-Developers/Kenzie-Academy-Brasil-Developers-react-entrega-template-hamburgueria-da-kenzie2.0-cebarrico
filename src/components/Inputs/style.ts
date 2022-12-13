@@ -12,5 +12,6 @@ export const InputStyle = styled.input`
   margin-top: 17px;
   &:focus {
     outline: 1px solid var(--color-primary);
+    border: 1px solid var(--color-primary);
   }
 `;

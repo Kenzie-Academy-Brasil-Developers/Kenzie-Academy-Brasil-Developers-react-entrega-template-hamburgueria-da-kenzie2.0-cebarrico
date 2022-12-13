@@ -1,7 +1,11 @@
+import { InfoSection } from "../../components/InfoSection";
+import { RegisterForm } from "./RegisterForm";
+
 export const RegisterPage = () => {
   return (
-    <div>
-      <h1>RegisterPAGE</h1>
-    </div>
+    <main>
+      <InfoSection />
+      <RegisterForm />
+    </main>
   );
 };
