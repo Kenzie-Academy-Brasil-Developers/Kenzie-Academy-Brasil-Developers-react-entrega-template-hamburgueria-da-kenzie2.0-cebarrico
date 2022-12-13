@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
     try {
       const response = await api.post("login", data);
       const { accessToken, user: userData } = response.data;
-      console.log(accessToken);
 
       localStorage.setItem("token", accessToken);
 

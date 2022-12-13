@@ -27,6 +27,10 @@ export const GlobalStyle = createGlobalStyle`
   justify-content: center;
   align-items: center;
 }
+
+header{
+  width: 100%;
+}
   main{
     width:100%;
     height: 100vh;
@@ -41,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
 
     padding: 0 20px;
   }
+  
 @media (min-width: 600px){
   main{
     flex-direction: row-reverse;
@@ -54,16 +59,7 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
   }
   
-  button {
-    background-color: var(--color-primary);
-    color: white;
-    font-family: 'Inter', sans-serif;
-    padding: 0 20px;
-    height: 40px;
-    border: 1px solid var(--color-primary);
-    border-radius: 8px;
-    cursor: pointer;
-  }
+  
   @media (min-width: 800px){
     main{
       display:flex;
