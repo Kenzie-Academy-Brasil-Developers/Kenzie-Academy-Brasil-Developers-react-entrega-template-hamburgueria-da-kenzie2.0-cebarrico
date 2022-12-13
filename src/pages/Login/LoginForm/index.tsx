@@ -8,6 +8,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { InputDefault } from "../../../components/Inputs";
 import { InputStyle } from "../../../components/Inputs/style";
 import { StyledFieldSet } from "../../../styles/fieldset";
+import { ButtonDefault } from "../../../styles/buttons";
 
 import { DefaultStyleForm } from "../../../styles/forms";
 
@@ -36,7 +37,7 @@ export const LoginForm = () => {
           <InputStyle required type="password" {...register("password")} />
           <label>Senha</label>
         </StyledFieldSet>
-        <button type="submit">login</button>
+        <ButtonDefault type="submit">login</ButtonDefault>
         <span>
           Crie sua conta para saborear muitas delícias e matar sua fome!
         </span>
