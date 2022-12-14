@@ -1,5 +1,6 @@
 import { StyledInfoSection } from "./style";
-// import logo from "../../assets/img/logo.svg";
+import logo from "../../assets/img/logo.svg";
+import bag from "../../assets/img/bag.svg";
 
 interface iLogo {
   img: string;
@@ -10,13 +11,13 @@ export const InfoSection = () => {
   return (
     <StyledInfoSection>
       {/* <LogoDefaul src="../../assets/img/logo.svg" alt="" /> */}
-      {/* <img src={logo} /> */}
-      <h2>KEnzie burger</h2>
+      <img src={logo} />
 
       <div>
-        <span>Bag</span>
+        <img className="bag" src={bag} />
+
         <p>
-          A vida é como um sanduíche, é preciso recheá-la com os melhores
+          A vida é como um sanduíche, é preciso recheá-la com os <b>melhores</b>{" "}
           ingredientes.
         </p>
       </div>
