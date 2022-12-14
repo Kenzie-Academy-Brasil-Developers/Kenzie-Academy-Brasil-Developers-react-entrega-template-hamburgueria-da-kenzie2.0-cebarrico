@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-grey-2:#828282;
     --color-grey-3:#E0E0E0;
     --color-grey-4:#F5F5F5;
+    --color-deactivate:#BDBDBD;;
     --negative:#E60000;
     --warning:#FFCD07;
     --sucess:#168821;
@@ -24,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 #root{
   display:flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
 }
@@ -46,6 +48,9 @@ header{
     padding: 0 20px;
   }
   
+  .mainProducts{
+    height: 100%;
+  }
 @media (min-width: 600px){
   main{
     flex-direction: row-reverse;

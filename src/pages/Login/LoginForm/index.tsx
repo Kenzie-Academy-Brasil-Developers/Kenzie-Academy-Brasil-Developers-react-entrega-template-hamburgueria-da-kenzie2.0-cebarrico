@@ -21,7 +21,11 @@ interface iLoginFormData {
 
 export const LoginForm = () => {
   const { login } = useContext(AuthContext);
-  const { register, handleSubmit } = useForm<iLoginFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iLoginFormData>({
     resolver: yupResolver(loginSchema),
   });
 
@@ -32,10 +36,12 @@ export const LoginForm = () => {
         <StyledFieldSet>
           <InputStyle required type="email" {...register("email")} />
           <label>Email</label>
+          {errors.email?.message && <p>{errors.email.message}</p>}
         </StyledFieldSet>
         <StyledFieldSet>
           <InputStyle required type="password" {...register("password")} />
           <label>Senha</label>
+          {errors.password?.message && <p>{errors.password.message}</p>}
         </StyledFieldSet>
         <ButtonDefault type="submit">login</ButtonDefault>
         <span>

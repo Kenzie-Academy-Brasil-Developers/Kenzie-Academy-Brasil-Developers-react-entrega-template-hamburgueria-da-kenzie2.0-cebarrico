@@ -21,6 +21,13 @@ export const DefaultStyleForm = styled.form`
     text-align: center;
   }
 
+  p {
+    color: var(--negative);
+    font-size: 12px;
+
+    margin-top: 5px;
+  }
+
   a {
     color: var(--color-grey-2);
     font-weight: 600;

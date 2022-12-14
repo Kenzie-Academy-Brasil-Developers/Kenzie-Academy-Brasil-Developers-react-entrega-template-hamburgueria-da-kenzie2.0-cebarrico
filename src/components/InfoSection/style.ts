@@ -7,16 +7,17 @@ export const StyledInfoSection = styled.section`
   flex-direction: column;
 
   gap: 35px;
-  img {
-    max-width: 240px;
-  }
+
   @media (min-width: 600px) {
     margin-top: -30px;
   }
+
   div {
+    max-width: 377px;
     display: flex;
     gap: 20px;
-    margin-left: 20px;
+
+    padding: 14px 17px 24px 18px;
   }
 
   p {
