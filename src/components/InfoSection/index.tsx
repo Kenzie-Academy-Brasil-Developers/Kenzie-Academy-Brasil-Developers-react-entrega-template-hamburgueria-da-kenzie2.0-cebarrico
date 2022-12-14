@@ -1,17 +1,16 @@
 import { StyledInfoSection } from "./style";
 import logo from "../../assets/img/logo.svg";
 import bag from "../../assets/img/bag.svg";
+import { LogoDefaul } from "../Logo/Logo";
 
 interface iLogo {
   img: string;
 }
-// import { LogoDefaul } from "../Logo/Logo";
 
 export const InfoSection = () => {
   return (
     <StyledInfoSection>
-      {/* <LogoDefaul src="../../assets/img/logo.svg" alt="" /> */}
-      <img src={logo} />
+      <LogoDefaul src={logo} alt="" />
 
       <div>
         <img className="bag" src={bag} />
