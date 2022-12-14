@@ -6,12 +6,12 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { ButtonDefault } from "../../../styles/buttons";
 
 export const ProductCard = () => {
-  const { addToCart, cart } = useContext(ProductContext);
+  const { addToCart, filteredProducts } = useContext(ProductContext);
   const { products } = useContext(AuthContext);
 
   return (
     <>
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <li key={product.id}>
           <img src={product.img} />
           <h2>{product.name}</h2>

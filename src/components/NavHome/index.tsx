@@ -13,7 +13,7 @@ import { LogoDefaul } from "../Logo/Logo";
 import { ModalCart } from "../Cart";
 
 export const HeaderHome = () => {
-  const { count } = useContext(ProductContext);
+  const { count, filter, setFilter } = useContext(ProductContext);
   const [inputStatus, setInputStatus] = useState(false);
   const [cartStatus, setCartStatus] = useState<boolean>(false);
 
@@ -50,8 +50,8 @@ export const HeaderHome = () => {
         {inputStatus ? (
           <input
             type="text"
-            // value={filter}
-            // onChange={(e) => setFilter(e.target.value)}
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
           />
         ) : null}
 
