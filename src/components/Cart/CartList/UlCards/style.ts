@@ -5,7 +5,7 @@ export const StyledUlCart = styled.ul`
   max-height: 400px;
 
   overflow-y: scroll;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
 
@@ -14,7 +14,10 @@ export const StyledUlCart = styled.ul`
   li {
     width: 100%;
     height: 80px;
+
     display: flex;
+
+    margin-bottom: 18px;
     padding: 10px;
   }
   img {

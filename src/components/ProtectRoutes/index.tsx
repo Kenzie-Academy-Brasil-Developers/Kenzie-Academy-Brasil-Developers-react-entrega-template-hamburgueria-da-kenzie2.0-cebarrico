@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 export const ProtectRoute = () => {
   const navigate = useNavigate();
-  const { products, loading } = useContext(AuthContext);
+  const { products, loading, user } = useContext(AuthContext);
   if (loading) {
     return null;
   }
