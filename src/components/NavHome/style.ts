@@ -59,32 +59,6 @@ export const StyledNav = styled.nav`
     padding: 5px;
   }
 
-  input {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    /* z-index: 10; */
-
-    width: 98%;
-    height: 40px;
-    padding: 5px;
-    outline: none;
-    border: 1px solid var(--color-grey-1);
-  }
-
-  input:active {
-    box-shadow: 2px 2px 15px var(--color-primary) inset;
-  }
-  input:focus {
-    border: 1px solid var(--color-primary);
-    border-radius: 8px 0 0 8px;
-  }
-  input:focus ~ button {
-    border-radius: 0 8px 8px 0;
-  }
-
   @media (min-width: 800px) {
     display: flex;
     flex-direction: row;
@@ -93,10 +67,6 @@ export const StyledNav = styled.nav`
     div {
       display: flex;
       justify-content: flex-end;
-    }
-    input {
-      max-width: 365px;
-      transform: translate(35%, -54%);
     }
   }
 `;

@@ -11,7 +11,7 @@ export const CartCards = () => {
     <>
       {cart.map((product) => (
         <li key={product.id}>
-          <img src={product.img} />
+          <img src={product.img} alt={product.name} />
           <div className="infoContainer">
             <h2>{product.name}</h2>
             <div className="quantityContainer">

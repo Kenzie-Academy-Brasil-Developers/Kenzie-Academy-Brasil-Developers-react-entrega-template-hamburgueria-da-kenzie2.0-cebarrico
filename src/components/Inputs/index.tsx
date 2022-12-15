@@ -1,15 +1,20 @@
-import { InputStyle } from "./style";
+import { InputHTMLAttributes } from "react";
+import { UseFormRegisterReturn } from "react-hook-form/dist/types";
 
-interface iIpunt {
+import { InputStyle } from "./style";
+import { StyledFieldSet } from "../../styles/fieldset";
+
+interface iIpuntProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
   label: string;
-  register: () => void;
+  register: UseFormRegisterReturn;
 }
 
-export const InputDefault = ({ type, label, register }: iIpunt) => {
+export const InputDefault = ({ type, label, register }: iIpuntProps) => {
   return (
-    <fieldset>
+    <StyledFieldSet>
       <InputStyle type={type} {...register} />
-    </fieldset>
+      <label>{label}</label>
+    </StyledFieldSet>
   );
 };
