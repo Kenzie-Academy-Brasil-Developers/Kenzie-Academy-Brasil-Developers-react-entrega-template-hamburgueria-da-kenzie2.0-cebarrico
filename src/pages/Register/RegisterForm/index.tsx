@@ -7,8 +7,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { registerSchema } from "./RegisterSchema";
 
 import { SectionFormStyle } from "./style";
-import { StyledFieldSet } from "../../../styles/fieldset";
-import { InputStyle } from "../../../components/Inputs/style";
+import { InputDefault } from "../../../components/Inputs";
 import { DefaultStyleForm } from "../../../styles/forms";
 import { ButtonDefault } from "../../../styles/buttons";
 
@@ -35,21 +34,16 @@ export const RegisterForm = () => {
         <Link to={"/"}>Voltar ao Login</Link>
       </div>
       <DefaultStyleForm onSubmit={handleSubmit(registerUser)}>
-        <StyledFieldSet>
-          <InputStyle required type="text" {...register("name")} />
-          <label>Nome</label>
-          {errors.name?.message && <p>{errors.name.message}</p>}
-        </StyledFieldSet>
-        <StyledFieldSet>
-          <InputStyle required type="email" {...register("email")} />
-          <label>Email</label>
-          {errors.email?.message && <p>{errors.email.message}</p>}
-        </StyledFieldSet>
-        <StyledFieldSet>
-          <InputStyle required type="password" {...register("password")} />
-          <label>Senha</label>
-          {errors.password?.message && <p>{errors.password.message}</p>}
-        </StyledFieldSet>
+        <InputDefault label="Nome" register={register("name")} type="name" />
+        {errors.name?.message && <p>{errors.name.message}</p>}
+        <InputDefault label="Email" register={register("email")} type="email" />
+        {errors.email?.message && <p>{errors.email.message}</p>}
+        <InputDefault
+          label="Senha"
+          register={register("password")}
+          type="password"
+        />
+        {errors.password?.message && <p>{errors.password.message}</p>}
         <ButtonDefault type="submit">Registrar</ButtonDefault>
       </DefaultStyleForm>
     </SectionFormStyle>

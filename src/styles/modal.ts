@@ -30,6 +30,17 @@ export const ModalContainer = styled.section`
     background-color: var(--color-grey-4);
 
     border-radius: 4px;
+
+    animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes slide-bottom {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   h5 {
@@ -96,9 +107,38 @@ export const ModalContainer = styled.section`
       color: var(--color-grey-2);
     }
   }
+  .finishContainer {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .buyBtm {
+    width: 45%;
+    height: 40px;
+
+    text-align: center;
+
+    background-color: var(--color-primary);
+
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+
+    cursor: pointer;
+  }
   .removeAllBtm {
+    width: 45%;
+
     margin: 25px 0;
+    margin-right: 0;
 
     font-weight: 600;
     font-size: 16px;

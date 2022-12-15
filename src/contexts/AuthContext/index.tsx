@@ -4,6 +4,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import { api } from "../../services/api";
 
+import { toast } from "react-toastify";
+
 import { iLogin, iUser, iRegister } from "./type";
 
 interface iAuthContextProps {
@@ -66,25 +68,29 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
   async function login(data: iLogin) {
     try {
       const response = await api.post("login", data);
-      const { accessToken, user } = response.data;
+      const { accessToken, user: userResponse } = response.data;
 
       localStorage.setItem("token", accessToken);
-      setUser(user);
+      setUser(userResponse);
+
       setLoading(false);
+      toast.success(`Bem Vindo! ${userResponse.name}`);
       const toNavigate = location.state?.from?.pathname || "/home";
       navigate(toNavigate, { replace: true });
     } catch (error) {
       console.log(error);
+      toast.error("Usuario ou senha incorretos");
     }
   }
 
   async function registerUser(data: iRegister) {
     try {
       const response = await api.post("users", data);
-
+      toast.success("Conta criada com sucesso!");
       return response.data;
     } catch (error) {
       console.log(error);
+      toast.error("Ops algo deu errado!!");
     }
   }
   return (

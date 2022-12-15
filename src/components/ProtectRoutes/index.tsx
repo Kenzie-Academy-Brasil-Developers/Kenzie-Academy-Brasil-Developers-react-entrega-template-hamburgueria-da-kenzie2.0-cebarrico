@@ -5,10 +5,11 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 export const ProtectRoute = () => {
   const navigate = useNavigate();
-  const { products, loading, user } = useContext(AuthContext);
+  const token = localStorage.getItem("token");
+  const { loading } = useContext(AuthContext);
   if (loading) {
     return null;
   }
 
-  return products ? <Outlet /> : navigate("/");
+  return token ? <Outlet /> : navigate("/");
 };

@@ -7,7 +7,6 @@ import { InfoSection } from "../../components/InfoSection";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-
   const { loading, setLoading } = useContext(AuthContext);
 
   useEffect(() => {

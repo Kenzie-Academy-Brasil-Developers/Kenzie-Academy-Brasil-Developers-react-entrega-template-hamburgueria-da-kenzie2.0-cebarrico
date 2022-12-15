@@ -11,7 +11,7 @@ export const ProductCard = () => {
     <>
       {filteredProducts.map((product) => (
         <li key={product.id}>
-          <img src={product.img} />
+          <img src={product.img} alt={product.name} />
           <h2>{product.name}</h2>
           <span>{product.category}</span>
           <p>R$ {product.price.toFixed(2)} </p>
