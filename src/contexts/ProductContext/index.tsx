@@ -1,24 +1,12 @@
 import { createContext, useState, useContext } from "react";
 
 import { iProducts } from "../AuthContext";
+import { iProductContext } from "./types";
+
 import { AuthContext } from "../AuthContext";
 
 interface iProductContextProps {
   children: React.ReactNode;
-}
-
-interface iProductContext {
-  addToCart: (item: iProducts) => void;
-  removeToCart: (item: iProducts) => void;
-  removeComplete: (item: iProducts) => void;
-  cart: iProducts[];
-  setCart: React.Dispatch<React.SetStateAction<iProducts[]>>;
-
-  filteredProducts: iProducts[];
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
-  filter: string;
-  setFilter: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const ProductContext = createContext<iProductContext>(

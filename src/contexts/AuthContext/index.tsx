@@ -28,6 +28,7 @@ interface iAuthContext {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   products: iProducts[];
+
   user: iUser | null;
 }
 
@@ -48,19 +49,9 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
         setLoading(false);
         return;
       }
-      try {
-        const { data } = await api.get("/products", {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
 
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
+      setLoading(false);
+      getProducts();
     }
     loadProducts();
   }, []);
@@ -74,6 +65,7 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
       setUser(userResponse);
 
       setLoading(false);
+
       toast.success(`Bem Vindo! ${userResponse.name}`);
       const toNavigate = location.state?.from?.pathname || "/home";
       navigate(toNavigate, { replace: true });
@@ -93,6 +85,22 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
       toast.error("Ops algo deu errado!!");
     }
   }
+
+  async function getProducts() {
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await api.get("/products", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      setProducts(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{ login, registerUser, loading, setLoading, products, user }}
