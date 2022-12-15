@@ -1,13 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { ProductContext } from "../../../contexts/ProductContext";
-import { AuthContext } from "../../../contexts/AuthContext";
 
 import { ButtonDefault } from "../../../styles/buttons";
 
 export const ProductCard = () => {
   const { addToCart, filteredProducts } = useContext(ProductContext);
-  const { products } = useContext(AuthContext);
 
   return (
     <>

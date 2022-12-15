@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import { api } from "../../services/api";
 
-import { iLogin, iUser, iLoginResponse, iRegister } from "./type";
+import { iLogin, iUser, iRegister } from "./type";
 
 interface iAuthContextProps {
   children: React.ReactNode;
@@ -24,7 +24,9 @@ interface iAuthContext {
   login: (data: iLogin) => Promise<void>;
   registerUser: (data: iRegister) => Promise<void>;
   loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   products: iProducts[];
+  user: iUser | null;
 }
 
 export const AuthContext = createContext({} as iAuthContext);
@@ -32,6 +34,7 @@ export const AuthContext = createContext({} as iAuthContext);
 export const AuthProvider = ({ children }: iAuthContextProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [user, setUser] = useState(null);
   const [products, setProducts] = useState<iProducts[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -63,10 +66,11 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
   async function login(data: iLogin) {
     try {
       const response = await api.post("login", data);
-      const { accessToken } = response.data;
+      const { accessToken, user } = response.data;
 
       localStorage.setItem("token", accessToken);
-
+      setUser(user);
+      setLoading(false);
       const toNavigate = location.state?.from?.pathname || "/home";
       navigate(toNavigate, { replace: true });
     } catch (error) {
@@ -84,7 +88,9 @@ export const AuthProvider = ({ children }: iAuthContextProps) => {
     }
   }
   return (
-    <AuthContext.Provider value={{ login, registerUser, loading, products }}>
+    <AuthContext.Provider
+      value={{ login, registerUser, loading, setLoading, products, user }}
+    >
       {children}
     </AuthContext.Provider>
   );

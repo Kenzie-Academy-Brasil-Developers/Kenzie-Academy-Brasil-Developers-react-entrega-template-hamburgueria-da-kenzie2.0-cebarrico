@@ -12,6 +12,7 @@ interface iProductContext {
   removeComplete: (item: iProducts) => void;
   cart: iProducts[];
   filteredProducts: iProducts[];
+
   count: number;
   filter: string;
   setFilter: React.Dispatch<React.SetStateAction<string>>;

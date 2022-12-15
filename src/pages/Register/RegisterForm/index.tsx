@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -27,10 +27,6 @@ export const RegisterForm = () => {
   } = useForm<iRegisterFormData>({
     resolver: yupResolver(registerSchema),
   });
-
-  function teste(data: iRegisterFormData) {
-    console.log(data);
-  }
 
   return (
     <SectionFormStyle>
