@@ -30,6 +30,17 @@ export const ModalContainer = styled.section`
     background-color: var(--color-grey-4);
 
     border-radius: 4px;
+
+    animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes slide-bottom {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   h5 {

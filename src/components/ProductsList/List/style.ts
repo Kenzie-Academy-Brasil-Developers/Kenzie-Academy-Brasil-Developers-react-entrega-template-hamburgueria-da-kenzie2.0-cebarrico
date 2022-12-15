@@ -18,6 +18,7 @@ export const StyledProductsList = styled.ul`
     height: 346px;
 
     border: 2px solid var(--color-grey-3);
+    border-radius: 4px;
 
     padding: 5px;
   }
@@ -29,6 +30,7 @@ export const StyledProductsList = styled.ul`
       background-color: var(--color-primary);
 
       border: 2px solid var(--color-primary);
+      animation: heartbeat 1.5s ease-in-out infinite both;
     }
 
     h2 {
@@ -71,5 +73,35 @@ export const StyledProductsList = styled.ul`
   button {
     background-color: var(--color-deactivate);
     border: 2px solid var(--color-deactivate);
+  }
+
+  @keyframes heartbeat {
+    from {
+      transform: scale(1);
+
+      transform-origin: center center;
+
+      animation-timing-function: ease-out;
+    }
+    10% {
+      transform: scale(0.91);
+
+      animation-timing-function: ease-in;
+    }
+    17% {
+      transform: scale(0.98);
+
+      animation-timing-function: ease-out;
+    }
+    33% {
+      transform: scale(0.87);
+
+      animation-timing-function: ease-in;
+    }
+    45% {
+      transform: scale(1);
+
+      animation-timing-function: ease-out;
+    }
   }
 `;
